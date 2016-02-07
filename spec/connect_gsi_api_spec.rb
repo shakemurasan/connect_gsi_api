@@ -5,7 +5,15 @@ describe ConnectGsiApi do
     expect(ConnectGsiApi::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  describe '.distance2p' do
+    let(:lat1) { 35.689166 }
+    let(:lng1) { 139.704444 }
+    let(:lat2) { 35.654444 }
+    let(:lng2) { 139.706666 }
+    subject { ConnectGsiApi.distance2p(lat1, lng2, lat2, lng2) }
+
+    it 'return a distance' do
+      expect(subject).to eq 3852.099
+    end
   end
 end
