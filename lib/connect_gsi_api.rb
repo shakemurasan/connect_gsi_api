@@ -5,10 +5,12 @@ require 'open-uri'
 API_URL = "http://vldb.gsi.go.jp/sokuchi/surveycalc/"
 BL2ST_CALC = "surveycalc/bl2st_calc.pl?"
 
+class ConnectGsiApiException < StandardError; end
+
 module ConnectGsiApi
-  def self.distance2p(lat1, lng1, lat2, lng2, exp = false, output = "json", ellipsoid = "bessel")
+  def self.distance2p(lat1, lng1, lat2, lng2, exp = false, ellipsoid = "bessel")
     req_params = {
-        outputType: output,    # 出力タイプ
+        outputType: 'json',    # 出力タイプ
         ellipsoid:  ellipsoid, # 楕円体
         latitude1:  lat1.to_s, # 出発点緯度
         longitude1: lng1.to_s, # 出発点経度
@@ -18,7 +20,7 @@ module ConnectGsiApi
     result = JSON.parse(open(API_URL + BL2ST_CALC + join_params(req_params)).read)
     result["OutputData"]["geoLength"].to_f
   rescue => e
-    raise e if exp
+    raise ConnectGsiApiException, "#{e}" if exp
     nil
   end
 
