@@ -7,24 +7,16 @@ Gem::Specification.new do |spec|
   spec.name          = "connect_gsi_api"
   spec.version       = ConnectGsiApi::VERSION
   spec.authors       = ["Yasuhiro Matsumura"]
-  spec.email         = ["ym.contributor@gmail.com"]
+  spec.email         = ["ym.works1985@gmail.com"]
 
-  spec.summary       = %q{TBD}
-  spec.description   = %q{TBD}
+  spec.summary       = %q{緯度・経度を入力値に、国土地理院提供のAPI経由で二点間の距離を算出します。}
+  spec.description   = %q{本gemは、一回のリクエストで、一回だけ国土地理院提供のAPIを叩きます。APIの使用回数上限については、国土地理院が提示しているAPI利用規約を参照してください。また、APIの仕様上、日本の緯度・経度にしか対応していません。}
   spec.homepage      = "http://muramurasan.hatenablog.jp"
   spec.license       = "MIT"
 
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TBD"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
-
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir        = "bin"
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.11"

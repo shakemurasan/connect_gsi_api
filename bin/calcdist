@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require "connect_gsi_api"
+
+# ex: bundle exec calcdist
+puts ConnectGsiApi.distance2p *ARGV
