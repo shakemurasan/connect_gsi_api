@@ -11,7 +11,7 @@ describe ConnectGsiApi do
       allow(ConnectGsiApi).to receive(:connect_gsi_api).with(api_path, invalid_params).and_return(nil)
     end
 
-    let(:api_path) { "http://vldb.gsi.go.jp/sokuchi/surveycalc/surveycalc/bl2st_calc.pl?" }
+    let(:api_path) { API_URL + BL2ST_CALC }
     let(:valid_params) {
       {
           outputType: "json",
