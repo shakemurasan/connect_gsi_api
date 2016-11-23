@@ -8,17 +8,16 @@ APIの使用回数上限については、国土地理院が提示しているAP
 ## Installation
 
 Gemfile に下記の記述を追加してください。
-Add this line to your application's Gemfile:
 
 ```ruby
 gem 'connect_gsi_api'
 ```
 
-And then execute:
+その後、インストールをします:
 
     $ bundle
 
-Or install it yourself as:
+もしくは自分で手動でインストールしてください:
 
     $ gem install connect_gsi_api
 
@@ -37,16 +36,6 @@ ConnectGsiApi.distance2p 35.6581, 139.701742, 36.123456, 138.705749
 
     $ bundle exec calcdist 35.6581 139.701742 36.123456 138.705749
     $ => 103682.866
-
-## Development
-
-特に複雑なコードではないかと思いますので、プルリクエストお待ちしております。
-
-## Contributing
-
-何かお気付きの点があれば、下記のGitHubリポジトリまでissueの作成をお願い致します。
-Bug reports and pull requests are welcome on GitHub at https://github.com/muramurasan/connect_gsi_api.
-
 
 ## License
 
